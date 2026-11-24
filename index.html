@@ -1,421 +1,230 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfolio de Louysa Medjahed, étudiante en sciences des données de santé à l’Université Paris-Saclay.">
-  <title>Louysa Medjahed — Data santé</title>
-
-  <style>
-    :root {
-      --ink: #292438;
-      --muted: #716b7d;
-      --paper: #fffdfb;
-      --rose: #c95783;
-      --rose-light: #f8e9ef;
-      --lilac: #eeeafa;
-      --line: #eee8ec;
-      --white: #ffffff;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-
-    a { color: inherit; }
-
-    .wrap {
-      width: min(1080px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      font-weight: 800;
-      text-decoration: none;
-      letter-spacing: -0.04em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-size: 0.94rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .nav-links a:hover { color: var(--rose); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      align-items: center;
-      gap: 56px;
-      padding: 90px 0 78px;
-    }
-
-    .eyebrow {
-      color: var(--rose);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 720px;
-      margin: 14px 0 20px;
-      font-size: clamp(2.5rem, 6vw, 4.8rem);
-      line-height: 1.04;
-      letter-spacing: -0.065em;
-    }
-
-    h1 span { color: var(--rose); }
-
-    .intro {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 1.12rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: var(--white);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .profile-card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: linear-gradient(145deg, var(--rose-light), var(--lilac));
-      box-shadow: 0 18px 50px #39234712;
-    }
-
-    .initials {
-      display: grid;
-      width: 76px;
-      height: 76px;
-      place-items: center;
-      margin-bottom: 22px;
-      border-radius: 22px;
-      background: var(--white);
-      color: var(--rose);
-      font-size: 1.8rem;
-      font-weight: 850;
-    }
-
-    .profile-card p { margin: 8px 0; }
-    .profile-card .muted { color: var(--muted); }
-
-    section { padding: 64px 0; }
-
-    .section-heading {
-      max-width: 650px;
-      margin-bottom: 28px;
-    }
-
-    h2 {
-      margin: 8px 0 12px;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.15;
-      letter-spacing: -0.045em;
-    }
-
-    .section-heading p,
-    .about-text { color: var(--muted); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: start;
-    }
-
-    .highlight {
-      padding: 24px;
-      border-left: 3px solid var(--rose);
-      border-radius: 0 16px 16px 0;
-      background: var(--rose-light);
-      font-weight: 650;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--white);
-    }
-
-    .project-number {
-      color: var(--rose);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-    }
-
-    .project h3 {
-      margin: 12px 0 8px;
-      font-size: 1.15rem;
-      line-height: 1.35;
-    }
-
-    .project p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .tag {
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--lilac);
-      color: #514873;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill {
-      padding: 10px 15px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--white);
-      font-weight: 700;
-    }
-
-    .contact-box {
-      padding: 38px;
-      border-radius: 24px;
-      background: var(--ink);
-      color: var(--white);
-    }
-
-    .contact-box p { color: #d9d4e0; }
-
-    .contact-box .button {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 760px) {
-      .hero, .about-grid, .projects { grid-template-columns: 1fr; }
-      .hero { gap: 28px; padding-top: 60px; }
-      .nav-links { gap: 12px; }
-      section { padding: 48px 0; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio de Louysa Medjahed, étudiante en sciences des données de santé à l’Université Paris-Saclay.">
+<meta name="theme-color" content="#fbf7f4">
+<title>Louysa Medjahed — Sciences des données de santé</title>
+<style>
+:root{--ink:#30283a;--muted:#746d7b;--paper:#fbf7f4;--card:#fffefd;--rose:#b95378;--rose2:#f4dce5;--lilac:#ece8f7;--line:#e9e1e3;--green:#607b6c;--shadow:0 18px 50px #4031460d;--serif:Georgia,"Times New Roman",serif;--sans:Inter,"Avenir Next",Avenir,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}a{color:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:#fbf7f4eF;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-weight:780;text-decoration:none;letter-spacing:-.04em}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{text-decoration:none;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:var(--rose)}
+.hero{padding:76px 0 66px;display:grid;grid-template-columns:1.25fr .75fr;gap:54px;align-items:center}.eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--rose)}h1,h2,h3,p{margin-top:0}h1{font:500 clamp(2.7rem,6vw,5rem)/1.04 var(--serif);letter-spacing:-.055em;margin:12px 0 22px;max-width:750px}h1 em{color:var(--rose);font-style:normal}.lead{font-size:1.1rem;color:var(--muted);max-width:680px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 17px;border-radius:999px;text-decoration:none;font-weight:700;background:var(--ink);color:white;border:1px solid var(--ink)}.btn.light{background:transparent;color:var(--ink)}.btn:hover{transform:translateY(-1px)}
+.profile{border:1px solid var(--line);border-radius:28px;padding:28px;background:linear-gradient(145deg,#f7e8ed,#f0edf8);box-shadow:var(--shadow)}.profiletop{display:flex;align-items:center;gap:16px;margin-bottom:20px}.monogram{display:grid;place-items:center;width:58px;height:58px;border-radius:19px;background:#fff;color:var(--rose);font:700 1.35rem var(--serif)}.profile strong{display:block}.profile small{color:var(--muted)}.profile p{margin:10px 0;color:var(--muted)}.profile .availability{margin-top:20px;padding-top:18px;border-top:1px solid #dcd2df;font-size:.92rem}
+section{padding:64px 0}.section-head{max-width:720px;margin-bottom:30px}.section-head h2{font:500 clamp(2rem,4vw,3.1rem)/1.15 var(--serif);letter-spacing:-.045em;margin:8px 0 12px}.section-head p{color:var(--muted);margin:0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}.about p{color:var(--muted)}.note{padding:24px 26px;border-left:3px solid var(--rose);border-radius:0 18px 18px 0;background:#f5e8ed;color:var(--ink);font-weight:600}
+.project-shell{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:start}.project-nav{position:sticky;top:94px;padding:10px;border:1px solid var(--line);background:#fffaf8;border-radius:22px;max-height:calc(100vh - 120px);overflow:auto}.project-tab{width:100%;text-align:left;border:0;background:transparent;color:var(--muted);padding:12px 13px;border-radius:14px;cursor:pointer;font:inherit;font-size:.88rem;line-height:1.35;display:flex;gap:11px;align-items:flex-start}.project-tab .num{color:var(--rose);font-size:.72rem;font-weight:800;min-width:23px;padding-top:2px}.project-tab[aria-selected=true]{background:var(--rose2);color:var(--ink);font-weight:750}.project-tab:hover{background:#f5edf1;color:var(--ink)}
+.panel{border:1px solid var(--line);border-radius:26px;background:var(--card);padding:clamp(22px,4vw,42px);box-shadow:var(--shadow);min-height:620px}.panel[hidden]{display:none}.panel-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}.category{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:800}.project-count{color:var(--muted);font-size:.8rem}.panel h3{font:500 clamp(1.8rem,3.4vw,2.7rem)/1.12 var(--serif);letter-spacing:-.04em;margin:6px 0 14px}.summary{font-size:1.05rem;color:var(--muted);max-width:800px}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:11px;margin:24px 0 30px}.metric{padding:16px;border-radius:16px;background:#f7f1f3;border:1px solid #f0e6e9}.metric strong{display:block;color:var(--rose);font:600 1.55rem/1.2 var(--serif)}.metric span{display:block;color:var(--muted);font-size:.78rem;margin-top:6px;line-height:1.4}
+.panelgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}.block{border:1px solid var(--line);border-radius:18px;padding:19px 20px;background:#fff}.block h4{margin:0 0 11px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rose)}.block p,.block li{color:var(--muted);font-size:.9rem}.block p:last-child{margin-bottom:0}.block ul{margin:0;padding-left:18px}.block li+li{margin-top:7px}
+.chartbox{margin-top:16px;border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.charttitle{font-weight:750;font-size:.94rem;margin-bottom:4px}.chartnote{font-size:.78rem;color:var(--muted);margin-bottom:17px}.barrow{display:grid;grid-template-columns:minmax(120px,1.1fr) 2fr 64px;gap:10px;align-items:center;margin:12px 0;font-size:.81rem}.barlabel{color:var(--muted)}.track{height:9px;background:#f0eaed;border-radius:999px;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#bc5b80,#df9ab2)}.barval{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}.axis{display:flex;justify-content:space-between;color:#938995;font-size:.68rem;margin:5px 68px 0 0}
+.formula{background:#f3eff8;border-radius:14px;padding:13px 15px;margin-top:12px;color:#554963;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84rem;overflow-wrap:anywhere}.result-callout{margin-top:16px;padding:16px 18px;border-radius:16px;background:#f7f4fa;border:1px solid #ece5f3;color:#51475e;font-size:.9rem}.result-callout strong{color:var(--ink)}.caveat{margin-top:18px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.82rem}.caveat strong{color:var(--ink)}
+.forest{padding:5px 2px 0}.forestrow{display:grid;grid-template-columns:minmax(130px,1fr) 1.5fr minmax(140px,1fr);gap:12px;align-items:center;margin:15px 0;font-size:.78rem}.forestrow>span{color:var(--muted)}.forestrow>strong{font-size:.74rem;text-align:right;font-variant-numeric:tabular-nums}.foresttrack{height:22px;position:relative;border-bottom:1px solid #e8e0e5}.forestref{position:absolute;top:0;bottom:0;border-left:1px dashed #8c8491}.forestci{position:absolute;top:9px;height:4px;border-radius:4px;background:#cc829c}.forestpoint{position:absolute;top:5px;width:11px;height:11px;border-radius:50%;background:var(--rose);transform:translateX(-50%);box-shadow:0 0 0 3px #f4dce5}.forestaxis{display:flex;justify-content:space-between;margin:4px 160px 0 0;color:#938995;font-size:.68rem;padding-left:38%}
+.skills{display:flex;flex-wrap:wrap;gap:10px}.skill{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.88rem;font-weight:700}
+.contact{padding:38px;border-radius:26px;background:var(--ink);color:white}.contact h2{font:500 clamp(1.9rem,4vw,2.7rem)/1.15 var(--serif);margin:8px 0 14px}.contact p{color:#ded8e2;max-width:660px}.contact .eyebrow{color:#e9afc3}.contact .btn{background:#fff;color:var(--ink);border-color:#fff}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.85rem}
+:focus-visible{outline:3px solid #9b5c7c;outline-offset:3px}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:28px;padding:54px 0}.profile{max-width:620px}.project-shell{grid-template-columns:1fr}.project-nav{position:relative;top:0;max-height:none;display:flex;overflow-x:auto;gap:4px;white-space:nowrap}.project-tab{width:auto;min-width:max-content;align-items:center}.panel{min-height:0}}
+@media(max-width:620px){.wrap{width:min(calc(100% - 28px),1160px)}nav{min-height:62px}.navlinks{gap:12px}.navlinks a{font-size:.78rem}.navlinks a:first-child{display:none}.hero{padding-top:42px}section{padding:48px 0}.about,.panelgrid{grid-template-columns:1fr}.barrow{grid-template-columns:minmax(95px,1fr) 1.3fr 54px;gap:7px;font-size:.76rem}.panel{padding:20px 16px}.contact{padding:26px 22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
-
 <body>
-  <header>
-    <nav class="wrap" aria-label="Navigation principale">
-      <a class="brand" href="#">Louysa Medjahed</a>
-      <div class="nav-links">
-        <a href="#apropos">À propos</a>
-        <a href="#projets">Projets</a>
-        <a href="#competences">Compétences</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="wrap">
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Sciences des données de santé</div>
-          <h1>Bonjour, moi c’est <span>Louysa.</span></h1>
-          <p class="intro">
-            Étudiante en Master 2 à l’Université Paris-Saclay, je m’intéresse
-            à l’analyse des données de santé et aux méthodes statistiques
-            appliquées à la recherche.
-          </p>
-          <div class="buttons">
-            <a class="button" href="#projets">Découvrir mes projets</a>
-            <a class="button secondary" href="#contact">Me contacter</a>
-          </div>
-        </div>
-
-        <aside class="profile-card">
-          <div class="initials" aria-hidden="true">LM</div>
-          <p><strong>Master 2 Sciences des données de santé</strong></p>
-          <p class="muted">Université Paris-Saclay</p>
-          <p class="muted">Recherche un stage de 6 mois à partir de février 2027</p>
-        </aside>
-      </section>
-
-      <section id="apropos">
-        <div class="section-heading">
-          <div class="eyebrow">Mon parcours</div>
-          <h2>Les données au service des questions de santé.</h2>
-        </div>
-        <div class="about-grid">
-          <p class="about-text">
-            Après une première année de Master en Économie de la santé à
-            l’Université du Mans, je poursuis mon parcours en sciences des
-            données de santé à Paris-Saclay. Ma formation associe statistiques,
-            épidémiologie et programmation.
-          </p>
-          <div class="highlight">
-            J’aime transformer des données en analyses claires et utiles,
-            en gardant à l’esprit les enjeux humains et le contexte de santé.
-          </div>
-        </div>
-      </section>
-
-      <section id="projets">
-        <div class="section-heading">
-          <div class="eyebrow">Sélection</div>
-          <h2>Quelques projets</h2>
-          <p>Des travaux universitaires et une expérience de terrain autour de l’analyse de données.</p>
-        </div>
-
-        <div class="projects">
-          <article class="project">
-            <div class="project-number">01 — EHPAD</div>
-            <h3>Suivi des mouvements de résidents</h3>
-            <p>
-              Analyse de 998 enregistrements concernant 148 résidents et
-              création d’un tableau de bord Shiny pour présenter les indicateurs
-              à un public non statisticien.
-            </p>
-            <div class="tags">
-              <span class="tag">R</span>
-              <span class="tag">Shiny</span>
-              <span class="tag">Visualisation</span>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-number">02 — Analyse de données</div>
-            <h3>Étude sur les féminicides en Europe</h3>
-            <p>
-              Préparation et fusion de données, traitement des valeurs manquantes
-              par imputation multiple, puis analyse par régression.
-            </p>
-            <div class="tags">
-              <span class="tag">R</span>
-              <span class="tag">MICE</span>
-              <span class="tag">Régression</span>
-            </div>
-          </article>
-
-          <article class="project">
-            <div class="project-number">03 — Apprentissage statistique</div>
-            <h3>Prédiction du diabète</h3>
-            <p>
-              Mise en œuvre d’un modèle de forêt aléatoire sur le jeu de données
-              Pima Indians Diabetes, avec une AUC obtenue de 0,78.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">H2O</span>
-              <span class="tag">Classification</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="competences">
-        <div class="section-heading">
-          <div class="eyebrow">Outils et méthodes</div>
-          <h2>Mes compétences</h2>
-        </div>
-        <div class="skills">
-          <span class="skill">R</span>
-          <span class="skill">Python</span>
-          <span class="skill">SQL</span>
-          <span class="skill">SAS</span>
-          <span class="skill">Shiny</span>
-          <span class="skill">Épidémiologie</span>
-          <span class="skill">Biostatistiques</span>
-          <span class="skill">Nettoyage de données</span>
-          <span class="skill">Visualisation</span>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="contact-box">
-          <div class="eyebrow">Échangeons</div>
-          <h2>Vous avez un projet ou une opportunité de stage ?</h2>
-          <p>
-            Je suis disponible pour un stage de six mois à partir de février 2027.
-            Vous pouvez me contacter par e-mail.
-          </p>
-          <a class="button" href="mailto:louysapro@gmail.com">M’écrire</a>
-        </div>
-      </section>
+<header>
+  <nav class="wrap" aria-label="Navigation principale">
+    <a class="brand" href="#">Louysa Medjahed</a>
+    <div class="navlinks">
+      <a href="#apropos">À propos</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a>
     </div>
-  </main>
+  </nav>
+</header>
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Sciences des données de santé</div>
+        <h1>Des données bien lues,<br><em>des questions mieux posées.</em></h1>
+        <p class="lead">Je suis Louysa, étudiante en Master 2 Sciences des données de santé à l’Université Paris-Saclay. J’explore comment les statistiques, l’épidémiologie et la programmation peuvent éclairer les questions de santé.</p>
+        <div class="actions"><a class="btn" href="#projets">Explorer les projets <span aria-hidden="true">↘</span></a><a class="btn light" href="#contact">Me contacter</a></div>
+      </div>
+      <aside class="profile">
+        <div class="profiletop"><div class="monogram" aria-hidden="true">LM</div><div><strong>Louysa Medjahed</strong><small>Master 2 · Université Paris-Saclay</small></div></div>
+        <p>Statistiques appliquées, données de santé et recherche.</p>
+        <p class="availability"><strong>À la recherche d’un stage de 6 mois</strong><br>À partir de février 2027</p>
+      </aside>
+    </section>
 
-  <footer>
-    <div class="wrap">© 2026 Louysa Medjahed</div>
-  </footer>
+    <section id="apropos">
+      <div class="section-head"><div class="eyebrow">Mon parcours</div><h2>Relier les méthodes aux enjeux de santé.</h2></div>
+      <div class="about">
+        <p>Après un Master 1 en Économie de la santé à l’Université du Mans, je poursuis mon parcours en sciences des données de santé à Paris-Saclay. Ma formation associe statistiques, épidémiologie et programmation.</p>
+        <div class="note">J’aime rendre les analyses compréhensibles, depuis la préparation des données jusqu’à la présentation des résultats.</div>
+      </div>
+    </section>
+
+    <section id="projets">
+      <div class="section-head"><div class="eyebrow">Études de cas</div><h2>Les projets, en détail.</h2><p>Choisissez un onglet pour parcourir la question, les méthodes, les résultats et les limites de chaque analyse.</p></div>
+      <div class="project-shell">
+        <div class="project-nav" role="tablist" aria-label="Projets" aria-orientation="vertical" id="project-tabs"></div>
+        <div id="project-panels"></div>
+      </div>
+    </section>
+
+    <section id="competences">
+      <div class="section-head"><div class="eyebrow">Outils et méthodes</div><h2>Compétences mobilisées.</h2></div>
+      <div class="skills"><span class="skill">R</span><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">SAS</span><span class="skill">Shiny</span><span class="skill">Biostatistiques</span><span class="skill">Épidémiologie</span><span class="skill">Nettoyage de données</span><span class="skill">Visualisation</span><span class="skill">Modélisation prédictive</span></div>
+    </section>
+
+    <section id="contact">
+      <div class="contact"><div class="eyebrow">Échangeons</div><h2>Vous avez un projet ou une opportunité de stage ?</h2><p>Je suis disponible pour un stage de six mois à partir de février 2027. Je serais ravie d’échanger autour de vos besoins en biostatistiques et en analyse de données de santé.</p><a class="btn" href="mailto:louysapro@gmail.com">M’écrire</a></div>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">© 2026 Louysa Medjahed</div></footer>
+
+<script>
+const projects=[
+{
+id:"mental",category:"Modélisation prédictive",title:"Détresse mentale et santé cardiovasculaire",summary:"Peut-on repérer une détresse mentale fréquente à partir des informations de santé et de mode de vie recueillies par le BRFSS ?",
+metrics:[["319 795","personnes dans le jeu BRFSS"],["12,1 %","en détresse mentale fréquente"],["0,787","AUC-ROC du Random Forest"]],
+question:"Explorer les liens entre santé mentale, santé physique et maladie cardiovasculaire, puis construire un modèle de prédiction et comprendre les variables qui contribuent à ses estimations.",
+data:"Enquête américaine CDC/BRFSS heart_2020_cleaned. La cible est définie par au moins 14 jours de mauvaise santé mentale sur les 30 derniers jours. Quatorze variables explicatives sont conservées.",
+methods:["Variables binaires encodées et variables ordonnées préparées avant la modélisation.","Découpage stratifié 80/20 pour préserver la proportion de la classe positive.","Random Forest de 200 arbres, profondeur maximale 10, avec pondération des classes.","AUC-ROC pour l’évaluation et SHAP pour l’interprétabilité."],
+chartTitle:"Détresse mentale fréquente : proportions observées",chartNote:"Comparaisons descriptives dans l’échantillon BRFSS ; elles ne mesurent pas un effet causal.",
+bars:[["Femmes",14.7,20,"14,7 %"],["Hommes",9.3,20,"9,3 %"],["Avec maladie cardiovasculaire",15.5,20,"15,5 %"],["Sans maladie cardiovasculaire",11.8,20,"11,8 %"],["18–24 ans",19.5,20,"19,5 %"],["80 ans et plus",5.8,20,"5,8 %"]],
+calculation:"Écart femmes–hommes : 14,7 − 9,3 = 5,4 points de pourcentage.",
+findings:["La santé physique et l’âge arrivent en tête des facteurs qui contribuent aux prédictions SHAP.","Le taux descriptif est plus élevé chez les femmes et les personnes déclarant une maladie cardiovasculaire.","L’AUC-ROC du Random Forest est de 0,787 sur l’échantillon de test."],
+limitations:"Données transversales et déclaratives : les résultats décrivent des associations et des prédictions, pas des relations de cause à effet. Les résultats SHAP indiquent la contribution des variables au modèle, pas des causes de détresse."
+},
+{
+id:"meta",category:"Biostatistique bayésienne",title:"Quels traitements favorisent la cicatrisation des ulcères veineux ?",summary:"Une méta-analyse en réseau compare les résultats de 19 essais randomisés lorsque les traitements n’ont pas tous été comparés directement.",
+metrics:[["19","essais randomisés"],["4","traitements actifs comparés"],["2,77","OR pentoxifylline vs placebo"],["0,83","SUCRA pentoxifylline"]],
+question:"Comparer pentoxifylline, sulodexide, MPFF et UGFS pour la cicatrisation complète, en reliant les essais par les traitements communs.",
+data:"Dix-neuf essais randomisés à deux bras. Dix-huit comparent un médicament au placebo ; un essai compare UGFS aux soins standards, assimilés au placebo pour relier le réseau.",
+methods:["Modèle binomial avec lien logit et effets aléatoires pour l’hétérogénéité entre essais.","Estimation MCMC sous OpenBUGS puis R avec gemtc/JAGS, trois chaînes.","Odds ratios et intervalles de crédibilité à 95 %, probabilités de classement et SUCRA.","Diagnostics de convergence, hétérogénéité, funnel plot et analyse fréquentiste complémentaire."],
+chartTitle:"Effets estimés sur la cicatrisation, vs placebo",chartNote:"OR et intervalles de crédibilité à 95 %. L’UGFS repose sur un seul essai et son estimation est très imprécise.",
+forest:[["Pentoxifylline",2.77,1.81,4.38],["Sulodexide",2.55,1.42,4.68],["MPFF",1.86,1.15,3.10],["UGFS* ",15,1.71,411]],
+findings:["La pentoxifylline arrive en tête parmi les médicaments (OR 2,77 ; SUCRA 0,83).","Les estimations des trois médicaments sont supérieures au placebo dans l’analyse présentée.","L’OR de l’UGFS est d’environ 15, avec un intervalle très large (1,71–411) : résultat exploratoire."],
+limitations:"La comparaison dépend de l’hypothèse de comparabilité entre essais. L’assimilation des soins standards au placebo et l’essai unique pour l’UGFS demandent une interprétation prudente."
+},
+{
+id:"maternelle",category:"Épidémiologie",title:"Chirurgie bariatrique maternelle et poids de naissance",summary:"Comparer les naissances avant et après l’intervention, en tenant compte des caractéristiques maternelles et des naissances répétées chez une même mère.",
+metrics:[["1 932","mères opérées"],["2 859","naissances analysées"],["−314 g","différence moyenne ajustée"],["0,26","OR ajusté de macrosomie"]],
+question:"Le poids de naissance et les risques de petit poids ou de macrosomie diffèrent-ils selon que la conception a eu lieu avant ou après la chirurgie bariatrique ?",
+data:"Extraits pseudonymisés de données hospitalières. Les fichiers mères et enfants ont été reliés puis ramenés à une ligne par enfant. Les résultats ci-dessous sont agrégés.",
+methods:["Régression linéaire pour le poids et régression logistique pour les critères binaires, avec erreurs robustes regroupées par mère.","Ajustement sur sexe, âge maternel, rang de naissance, grossesse multiple, année et type de chirurgie.","Comparaison intra-mère sur 223 mères ayant des naissances avant et après la chirurgie.","Analyses de sensibilité : naissances uniques, à terme, et selon le type d’intervention."],
+chartTitle:"Critères de naissance après la chirurgie",chartNote:"Odds ratios ajustés et intervalles de confiance à 95 %.",
+forest:[["Poids < 2 500 g",2.17,1.39,3.39],["Macrosomie ≥ 4 000 g",0.26,0.18,0.38],["Naissance < 37 SA",1.12,0.73,1.74],["Gros pour l’âge gestationnel",0.33,0.21,0.53]],
+findings:["Le poids moyen ajusté est inférieur de 314 g après la chirurgie (IC 95 % : −367 à −261).","Les odds de poids < 2 500 g sont plus élevées (OR 2,17 ; IC 95 % : 1,39–3,39).","Les odds de macrosomie sont plus faibles (OR 0,26 ; IC 95 % : 0,18–0,38).","La comparaison intra-mère estime un écart de −365 g, avec un intervalle plus large."],
+limitations:"Étude observationnelle sans groupe témoin de mères non opérées. Des variables comme l’IMC pré-grossesse ou le tabagisme ne sont pas disponibles. Les dates sont tronquées au mois et certains dossiers ont été exclus en raison d’incohérences."
+},
+{
+id:"feminicides",category:"Économie de la santé",title:"Investissements publics et féminicides en Europe",summary:"Étudier comment richesse, prévalence des violences déclarées et investissements dédiés se rapportent aux écarts de ratios de féminicides entre pays.",
+metrics:[["148","observations"],["0,22","meilleur R²"],["p < 0,001","association au PIB"]],
+question:"Le PIB est-il associé au ratio de féminicides ? Les investissements contre les violences ont-ils un effet mesurable une fois la richesse et la prévalence prises en compte ?",
+data:"Sources officielles et associatives, principalement pour 2021. Les fichiers ont été fusionnés par pays ; les valeurs manquantes ont été traitées par imputation multiple avec mice.",
+methods:["Régressions linéaires successives : log(PIB), prévalence des violences, interaction avec le groupe de revenu.","Modèles complémentaires incluant les investissements anti-violence.","Visualisation des relations entre PIB, violences déclarées et ratio standardisé de féminicides."],
+chartTitle:"Qualité du meilleur modèle rapporté",chartNote:"R² = 0,22 : part de la variabilité expliquée par le modèle retenu.",
+bars:[["Variabilité expliquée (R²)",22,100,"0,22"]],
+calculation:"Modèle d’interaction étudié : femicide_ratio ~ log(gdp) × income_group.",
+findings:["Le PIB est négativement et significativement associé au ratio de féminicides dans l’analyse présentée.","La prévalence des violences déclarées améliore la qualité du modèle.","L’interaction avec le niveau de richesse n’est pas clairement significative.","Les dépenses semblent aussi refléter l’ampleur du problème auquel les pays répondent."],
+limitations:"Les données pays sont agrégées et couvrent principalement une année ; elles ne permettent pas d’établir un effet causal des dépenses. Les comparaisons dépendent de la qualité et de la comparabilité des sources nationales."
+},
+{
+id:"psychotropes",category:"Panorama des données de santé",title:"Médicaments psychotropes chez les jeunes en France",summary:"Comparer les bénéficiaires recensés en 2014 et 2023 dans les données ouvertes de l’Assurance maladie, et décrire leur répartition par sexe.",
+metrics:[["2014","16 547 469 bénéficiaires"],["2023","17 109 272 bénéficiaires"],["+561 803","écart entre les deux années"],["p < 2,2 × 10⁻¹⁶","test du chi-deux"]],
+question:"Comment le nombre de bénéficiaires a-t-il évolué entre 2014 et 2023 ? La répartition entre filles et garçons diffère-t-elle selon l’année ?",
+data:"Deux bases open data de l’Assurance maladie (2014 et 2023), filtrées sur les enfants et adolescents. Les médicaments psychotropes sont repérés à partir des codes ATC commençant par N.",
+methods:["Import, nettoyage, filtrage des populations et fusion des deux années sous R.","Statistiques descriptives par année et sexe.","Test du chi-deux pour comparer les distributions observées."],
+chartTitle:"Bénéficiaires par année et sexe",chartNote:"Effectifs rapportés dans l’analyse, arrondis en millions pour le graphique.",
+bars:[["Filles · 2014",8.291049,9,"8,29 M"],["Garçons · 2014",8.256420,9,"8,26 M"],["Filles · 2023",8.544341,9,"8,54 M"],["Garçons · 2023",8.564931,9,"8,56 M"]],
+calculation:"Écart total : 17 109 272 − 16 547 469 = 561 803 bénéficiaires (≈ +3,4 %).",
+findings:["Le nombre total rapporté passe d’environ 16,5 M en 2014 à 17,1 M en 2023.","Les filles sont légèrement plus nombreuses en 2014 ; les garçons le sont légèrement en 2023.","Le chi-deux est statistiquement significatif, mais l’écart entre sexes reste faible en valeur absolue."],
+limitations:"Seulement deux années sont comparées. Les données agrégées ne permettent pas d’étudier les trajectoires individuelles ni de détailler les résultats par classe thérapeutique. La significativité statistique ne signifie pas que l’écart est important en pratique."
+},
+{
+id:"cardiovasculaire",category:"Data mining · Modèles et profils",title:"Mode de vie et maladie cardiovasculaire",summary:"Explorer les facteurs associés à HeartDisease, construire un score de comportements à risque et comparer trois modèles sur les données BRFSS.",
+metrics:[["319 795","observations BRFSS"],["8,6 %","cas positifs dans la cible"],["0,817","AUC de la régression logistique"],["5,25 %","sensibilité du modèle retenu"]],
+question:"Les habitudes de vie et les caractéristiques de santé permettent-elles de distinguer les personnes déclarant une maladie cardiaque ?",
+data:"Jeu heart_2020_cleaned issu du BRFSS/CDC, 14 variables retenues après sélection. La cible HeartDisease est déséquilibrée : 8,6 % de réponses Yes. Aucune valeur manquante n’a été relevée dans les variables sélectionnées.",
+methods:["Découpage stratifié 70/30 : 223 858 observations d’entraînement et 95 937 de test.","LifestyleRiskScore de 0 à 4 : tabagisme, alcool, absence d’activité physique et sommeil inférieur à 6 heures.","K-means (k=3) et ACP sur quatre variables continues standardisées.","Comparaison sur le jeu de test d’une régression logistique, d’un arbre et d’une forêt aléatoire entraînée sur un sous-échantillon de 50 000 observations."],
+chartTitle:"Prévalence de HeartDisease par profil K-means",chartNote:"Prévalences rapportées dans le projet ; les clusters sont des profils statistiques, pas des catégories cliniques.",
+bars:[["Profil sain · cluster 1",7.2,25,"7,2 %"],["BMI élevé et santé physique dégradée · cluster 2",22.5,25,"22,5 %"],["Santé mentale altérée · cluster 3",7.3,25,"7,3 %"]],
+calculation:"Split stratifié : 70 % (223 858) pour l’entraînement ; 30 % (95 937) pour le test.",
+findings:["La régression logistique obtient une AUC de 0,8171, une sensibilité de 5,25 % et une spécificité de 99,49 %.","La forêt aléatoire obtient une AUC de 0,7608 et une sensibilité de 4,09 % ; l’arbre présente une AUC de 0,50 dans le tableau comparatif.","Les odds de maladie sont associées notamment à l’âge (OR ≈ 32,8 pour les 80 ans et plus vs 18–24 ans), au sexe masculin (≈2,02), au diabète (≈2,01) et à la difficulté à marcher (≈1,67).","Le cluster 2 présente 22,5 % de HeartDisease, contre 7,2 % et 7,3 % dans les deux autres profils. L’ACP explique 58,6 % de la variance avec ses deux premiers axes."],
+limitations:"La classe positive ne représente que 8,6 % des observations : malgré une accuracy autour de 91 %, la sensibilité reste faible. Les données sont auto-déclarées et transversales ; elles ne permettent pas de conclure à une causalité. La forêt aléatoire a été entraînée sur un sous-échantillon."
+},
+{
+id:"diabete",category:"Big Data & prédiction",title:"Prédire le diabète avec Pima Indians Diabetes",summary:"Nettoyer un jeu de données médical, étudier les facteurs associés à Outcome et comparer plusieurs algorithmes de classification.",
+metrics:[["768","patientes dans le dataset initial"],["0,52","corrélation glucose–Outcome"],["76,6 %","accuracy du GLM Sparklyr"],["0,78","AUC du Random Forest H2O"]],
+question:"Quels signaux sont associés à Outcome et quels modèles distinguent le mieux les cas de diabète dans ce jeu de données ?",
+data:"Jeu Pima Indians Diabetes : 768 femmes adultes, huit mesures de santé et une variable binaire Outcome.",
+methods:["Remplacement/traitement des zéros biologiquement impossibles, puis détection des valeurs extrêmes avec la règle 1,5 × IQR.","Split entraînement/test 70/30 pour le modèle Sparklyr.","Régression logistique sous Sparklyr et comparaison sous H2O de GLM, Random Forest et GBM.","Évaluation par accuracy, AUC et LogLoss."],
+chartTitle:"Accuracy des modèles H2O",chartNote:"Valeurs rapportées ; métriques complémentaires conservées dans le tableau.",
+bars:[["GLM",76,80,"≈76 %"],["Random Forest",75.6,80,"75,6 %"],["GBM",73.1,80,"73,1 %"]],
+calculation:"Random Forest H2O : AUC = 0,78 ; LogLoss = 0,54. GBM : AUC = 0,76 ; LogLoss = 0,70.",
+findings:["Glucose et BMI sont plus élevés en moyenne chez les patientes diabétiques dans l’analyse descriptive.","La corrélation de Pearson entre glucose et Outcome est d’environ 0,52.","Le Random Forest H2O obtient l’AUC la plus élevée rapportée parmi les modèles H2O."],
+limitations:"Le jeu contient uniquement des femmes et une majorité de personnes de 20 à 40 ans. Le déséquilibre des classes peut rendre l’accuracy trompeuse ; la généralisation à d’autres populations est limitée."
+},
+{
+id:"assurance",category:"Analyse exploratoire",title:"Facteurs associés aux remboursements d’assurance",summary:"Explorer comment l’âge, le sexe, le statut tabagique, le nombre d’accidents et les montants payés par l’assureur sont liés.",
+metrics:[["500","clients dans la base initiale"],["433","clients après nettoyage"],["0,93","corrélation accidents–montant"],["1,23 M€","montant total rapporté"]],
+question:"Quels profils présentent les montants payés les plus élevés, et quelle relation observe-t-on entre nombre d’accidents et montant remboursé ?",
+data:"Base de 500 clients avec âge, sexe, statut tabagique, nombre d’accidents et montant payé. Après retrait des lignes incomplètes avec dropna(), 433 observations complètes sont analysées.",
+methods:["Nettoyage des valeurs manquantes avec dropna().","Statistiques descriptives et segmentation par sexe, statut tabagique et tranches d’âge (18–30, 31–45, 46–60, plus de 60 ans).","Histogrammes et nuage de points accidents–montant payé.","Calcul de la corrélation entre le nombre d’accidents et le montant payé."],
+chartTitle:"Montant moyen selon le statut tabagique",chartNote:"Moyennes rapportées pour l’échantillon nettoyé.",
+bars:[["Non-fumeurs",2467,3600,"2 467 €"],["Fumeurs",3268,3600,"3 268 €"]],
+calculation:"Écart des moyennes rapportées : 3 268 € − 2 467 € = 801 €.",
+findings:["La corrélation accidents–montant payé est de 0,93 ; la relation est forte mais pas parfaitement linéaire.","21,2 % des clients n’ont déclaré aucun accident ; le nombre moyen est de 2,3, avec un maximum de 5.","Le montant moyen est de 2 844 €, le maximum de 5 822 € et le total payé rapporté de 1 231 796 €.","Les moyennes rapportées sont de 3 268 € chez les fumeurs contre 2 467 € chez les non-fumeurs ; l’écart des moyennes est d’environ 801 €."],
+limitations:"La base est de taille modeste et l’analyse est descriptive. Des facteurs non observés (gravité, type d’accident, véhicule) peuvent expliquer certains montants élevés. Association et corrélation ne démontrent pas de causalité."
+},
+{
+id:"couverture",category:"Économie de la santé · Modèle",title:"Couverture minimale et choix de dépenses de santé",summary:"Un modèle microéconomique pour étudier comment prix, préférences et couverture publique influencent les dépenses de santé et les inégalités entre ménages.",
+metrics:[["Uᵢ = ln(cᵢ) + φπ(mᵢ)","fonction d’utilité"],["p = 1","prix normalisé aux États-Unis"],["p = 0,6","prix relatif calibré pour l’Europe"]],
+question:"Comment un ménage arbitre-t-il entre consommation et dépenses de santé ? Une couverture publique minimale peut-elle contribuer à expliquer les différences stylisées entre États-Unis et Europe ?",
+data:"Projet théorique et simulation numérique. Les ménages sont répartis en quatre quartiles de revenu normalisés ; les moments cibles proviennent des faits stylisés vus en cours, et non d’un jeu de données individuel.",
+methods:["Définition d’une probabilité de bonne santé π(m)=1−exp(−α₁−α₀m) et d’une contrainte budgétaire avec transfert public.","Dérivation du Lagrangien et des conditions du premier ordre par rapport à la consommation, à la dépense de santé et au multiplicateur.","Résolution numérique par bissection et recherche de grille pour calibrer les paramètres.","Comparaison des paramètres calibrés et simulation de plusieurs niveaux de couverture publique ζ."],
+chartTitle:"Prix relatif de la santé dans la calibration",chartNote:"Le prix américain est normalisé à 1 ; le résultat européen est une calibration du modèle, pas une estimation empirique.",
+bars:[["États-Unis · normalisation",1,1,"1,0"],["Europe · calibration",0.6,1,"0,6"]],
+calculation:"Condition d’optimalité : φ α₀ exp(−α₁−α₀mᵢ) = p / cᵢ.",
+findings:["La sortie du notebook calibre les paramètres américains à φ=2,5, α₀=6 et α₁=1.","La calibration européenne donne un prix relatif p=0,6 ; les préférences et l’efficacité des soins sont conservées dans l’exercice.","Quand ζ varie de 0,05 à 0,20, la part simulée des dépenses de santé dans le revenu passe de 12,544 % à 12,533 % dans les sorties sauvegardées."],
+limitations:"Les revenus sont normalisés et les cibles viennent du cours : les valeurs sont illustratives, pas des mesures observées. Le texte du notebook donne α₁ européen égal à 1,0 alors que la sortie du code affiche 1,5 ; cette valeur doit être vérifiée. La variation de ζ produit des changements très faibles dans les sorties enregistrées et ne confirme pas à elle seule toutes les interprétations rédigées."
+},
+{
+id:"air",category:"Analyse exploratoire · Environnement",title:"Qualité de l’air : valeurs manquantes, extrêmes et tendances",summary:"Explorer des mesures horaires de quatre polluants dans trois villes, préparer la base puis étudier les distributions, les corrélations et l’évolution de PM2.5 à Paris.",
+metrics:[["3","villes : Paris, Lyon, Marseille"],["4","polluants étudiés"],["4,4–5,5 %","valeurs manquantes selon le polluant"],["21","valeurs extrêmes O₃ rapportées"]],
+question:"Comment se répartissent les polluants dans le jeu étudié, et que montrent une moyenne mobile de PM2.5 à Paris et les corrélations entre polluants ?",
+data:"Notebook Python chargeant python_air_quality.csv : dates horaires de 2023, ville et concentrations de PM2.5, PM10, NO2 et O3. La provenance du fichier n’est pas indiquée dans le notebook.",
+methods:["Comptage et visualisation des valeurs manquantes, par polluant et par ville.","Interpolation après tri par ville et date.","Détection des valeurs extrêmes par la règle IQR puis remplacement par la médiane locale ville–polluant.","Boxplots par ville, moyenne mobile glissante de 24 observations pour PM2.5 à Paris et matrice de corrélation."],
+chartTitle:"Part de valeurs manquantes par polluant",chartNote:"Proportions calculées dans le notebook avant traitement.",
+bars:[["PM2.5",4.6046,6,"4,60 % · 46"],["PM10",4.4044,6,"4,40 % · 44"],["NO2",5.5055,6,"5,51 % · 55"],["O3",5.2052,6,"5,21 % · 52"]],
+calculation:"Pour chaque polluant : proportion manquante = nombre de valeurs absentes ÷ nombre total de lignes.",
+findings:["Le notebook rapporte 21 valeurs extrêmes détectées pour O3, ensuite remplacées par la médiane locale.","Les corrélations entre polluants sont proches de zéro : PM2.5–PM10 r=0,0066 ; PM2.5–NO2 r=−0,0315 ; O3–NO2 r=−0,0049.","Une moyenne mobile de 24 observations a été calculée pour PM2.5 à Paris afin de lisser la série horaire."],
+limitations:"La provenance et les unités du CSV ne sont pas précisées. Les valeurs initiales comportent des concentrations négatives, qui doivent être vérifiées avant toute interprétation environnementale. Cette analyse est donc présentée comme exercice exploratoire, pas comme mesure officielle de pollution."
+},
+{
+id:"ehpad",category:"Mémoire de Master 1 · EHPAD",title:"Mouvements de résidents et indicateurs de suivi",summary:"Transformer les données de mouvements en indicateurs lisibles pour soutenir le suivi de l’activité en établissement.",
+metrics:[["998","enregistrements analysés"],["148","résidents concernés"],["88","résidents avec GIR renseigné"],["16/20","note du mémoire"]],
+question:"Comment décrire les mouvements enregistrés et produire des indicateurs accessibles à l’équipe, à partir des données disponibles ?",
+data:"Données NetSoins de mouvements entre le 1er janvier 2022 et le 7 juillet 2026. L’analyse des GIR porte sur 88 résidents ; environ la moitié relève des GIR 1 ou 2.",
+methods:["Préparation et vérification des enregistrements de mouvements.","Construction d’indicateurs descriptifs et présentation dans un tableau de bord Shiny.","Restitution des résultats à un public non statisticien."],
+chartTitle:"Périmètre de l’analyse",chartNote:"Indicateurs agrégés uniquement. Aucun détail individuel ou dossier de résident n’est affiché.",
+bars:[["Résidents avec GIR renseigné",88,148,"88 / 148"],["Part avec GIR renseigné",59.5,100,"59,5 %"],["GIR 1 ou 2 parmi les GIR renseignés",50,100,"≈50 %"]],
+calculation:"Couverture du GIR : 88 ÷ 148 × 100 ≈ 59,5 %. Environ la moitié des 88 GIR renseignés sont 1 ou 2.",
+findings:["Le tableau de bord Shiny synthétise les indicateurs issus de 998 enregistrements concernant 148 résidents.","Le GIR est renseigné pour 88 résidents, soit environ 59,5 % des résidents concernés par l’analyse.","Parmi les GIR renseignés, environ la moitié correspondent aux niveaux 1 ou 2."],
+limitations:"Les indicateurs GIR ne couvrent pas l’ensemble des 148 résidents. Les graphiques de fréquence ou d’évolution des mouvements ne sont pas ajoutés tant que les tableaux agrégés correspondants ne sont pas disponibles. Les données individuelles restent confidentielles."
+}
+];
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}
+function renderBars(rows){return rows.map(function(r){var pct=Math.max(0,Math.min(100,(r[1]/r[2])*100));return '<div class="barrow"><span class="barlabel">'+esc(r[0])+'</span><div class="track" aria-hidden="true"><div class="fill" style="width:'+pct+'%"></div></div><span class="barval">'+esc(r[3])+'</span></div>'}).join("")}
+function renderForest(rows){var min=.1,max=500,log=function(x){return (Math.log(x)-Math.log(min))/(Math.log(max)-Math.log(min))*100};var ref=log(1);var body=rows.map(function(r){var a=log(r[2]),b=log(r[3]),p=log(r[1]);return '<div class="forestrow"><span>'+esc(r[0])+'</span><div class="foresttrack"><i class="forestref" style="left:'+ref+'%"></i><i class="forestci" style="left:'+a+'%;width:'+Math.max(1,b-a)+'%"></i><i class="forestpoint" style="left:'+p+'%"></i></div><strong>'+esc(String(r[1]))+' ['+esc(String(r[2]))+'–'+esc(String(r[3]))+']</strong></div>'}).join("");return '<div class="forest">'+body+'<div class="forestaxis"><span>0,1</span><span>1</span><span>10</span><span>100</span><span>500</span></div></div>'}
+function renderProject(p,i){var metric=p.metrics.map(function(m){return '<div class="metric"><strong>'+esc(m[0])+'</strong><span>'+esc(m[1])+'</span></div>'}).join("");var chart='<div class="chartbox"><div class="charttitle">'+esc(p.chartTitle)+'</div><div class="chartnote">'+esc(p.chartNote)+'</div>'+(p.bars?renderBars(p.bars):renderForest(p.forest))+(p.calculation?'<div class="formula">'+esc(p.calculation)+'</div>':'')+'</div>';var methods=p.methods.map(function(x){return '<li>'+esc(x)+'</li>'}).join("");var findings=p.findings.map(function(x){return '<li>'+esc(x)+'</li>'}).join("");return '<section class="panel" role="tabpanel" id="panel-'+p.id+'" aria-labelledby="tab-'+p.id+'" '+(i?'hidden':'')+'><div class="panel-top"><span class="category">'+esc(p.category)+'</span><span class="project-count">'+String(i+1).padStart(2,"0")+' / '+projects.length+'</span></div><h3>'+esc(p.title)+'</h3><p class="summary">'+esc(p.summary)+'</p><div class="metrics">'+metric+'</div><div class="panelgrid"><article class="block"><h4>Question étudiée</h4><p>'+esc(p.question)+'</p></article><article class="block"><h4>Données</h4><p>'+esc(p.data)+'</p></article><article class="block"><h4>Méthodes</h4><ul>'+methods+'</ul></article><article class="block"><h4>Résultats principaux</h4><ul>'+findings+'</ul></article></div>'+chart+'<div class="caveat"><strong>Limites et précautions.</strong> '+esc(p.limitations)+'</div></section>'}
+var tabs=document.getElementById("project-tabs"),panels=document.getElementById("project-panels");
+projects.forEach(function(p,i){var b=document.createElement("button");b.className="project-tab";b.type="button";b.id="tab-"+p.id;b.setAttribute("role","tab");b.setAttribute("aria-selected",i===0?"true":"false");b.setAttribute("aria-controls","panel-"+p.id);b.tabIndex=i===0?0:-1;b.innerHTML='<span class="num">'+String(i+1).padStart(2,"0")+'</span><span>'+esc(p.title)+'</span>';tabs.appendChild(b);panels.insertAdjacentHTML("beforeend",renderProject(p,i));b.addEventListener("click",function(){activate(i,true)})});
+function activate(index,focus){var buttons=Array.from(tabs.querySelectorAll('[role="tab"]'));buttons.forEach(function(b,i){b.setAttribute("aria-selected",i===index?"true":"false");b.tabIndex=i===index?0:-1});projects.forEach(function(p,i){var panel=document.getElementById("panel-"+p.id);panel.hidden=i!==index});if(focus)buttons[index].focus()}
+tabs.addEventListener("keydown",function(e){var buttons=Array.from(tabs.querySelectorAll('[role="tab"]'));var ix=buttons.indexOf(document.activeElement);if(ix<0)return;var next=null;if(e.key==="ArrowDown"||e.key==="ArrowRight")next=(ix+1)%buttons.length;else if(e.key==="ArrowUp"||e.key==="ArrowLeft")next=(ix-1+buttons.length)%buttons.length;else if(e.key==="Home")next=0;else if(e.key==="End")next=buttons.length-1;if(next!==null){e.preventDefault();activate(next,true)}});
+</script>
 </body>
 </html>
